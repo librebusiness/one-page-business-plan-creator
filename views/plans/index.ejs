@@ -9,13 +9,56 @@
 </head>
 
 <body>
-    <% include ../partials/navbar.ejs %>
+    <%- include('../partials/navbar.ejs', { user: true }) %>
+
+    <div class="container">
+        <h2 class="title mt-4">My Plans</h2>
+    
+        <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Business Name</th>
+                    <th>Business Type</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (plans.length) { %>
+                    <% plans.forEach((plan, i) => { %>
+                        <tr class="<%= (i + 1) % 2 == 0 ? 'is-light' : '' %>">
+                            <td><a href="/plans/<%= plan._id %>"><%= plan.name %></a></td>
+                            <td><%= plan.businessType %></td>
+                            <td><%= plan.date %></td>
+                            <td>
+                                <div class="buttons">
+                                    <button onclick="deletePlan('<%= plan._id %>')" class="button is-danger is-outlined is-small">Delete</button>
+                                    <a href="/plans/<%= plan._id %>" class="button is-primary is-small"><strong>See Details</strong></a>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr class="is-light">
+                        <td class="text-center p-4" colspan="4">No plans to show. Create one to get started.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
     <% if (errors) { %>
         <div class="notification is-danger error-notification" id="notification">
             <button class="delete" onclick="hideNotification()"></button>
             <%= errors.message %>
         </div>
     <% } %>
+
     <script src="/javascripts/interactivity.js"></script>
+    <script>
+        function deletePlan(id) {
+            alert(id);
+        }
+    </script>
 </body>
 </html>

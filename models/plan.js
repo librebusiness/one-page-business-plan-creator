@@ -24,6 +24,7 @@ const PlanSchema = new Schema({
     incentives: String,
     requirements: String,
     objectives: String,
+    date: { type: Date, default: new Date },
 });
 
 module.exports = model('Plan', PlanSchema);

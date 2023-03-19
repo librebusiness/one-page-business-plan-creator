@@ -9,14 +9,18 @@
 </head>
 
 <body>
-    <% include ../partials/navbar.ejs %>
-        <% if (errors) { %>
-            <div class="notification is-danger error-notification" id="notification">
-                <button class="delete" onclick="hideNotification()"></button>
-                <%= errors.message %>
-            </div>
-            <% } %>
-                <script src="/javascripts/interactivity.js"></script>
+    <%- include('../partials/navbar.ejs', { user: true }) %>
+    
+    <%- include('plan-form.ejs', { method: 'put', action: 'update', plan }) %>
+
+    <% if (errors) { %>
+        <div class="notification is-danger error-notification" id="notification">
+            <button class="delete" onclick="hideNotification()"></button>
+            <%= errors.message %>
+        </div>
+    <% } %>
+
+    <script src="/javascripts/interactivity.js"></script>
 </body>
 
 </html>

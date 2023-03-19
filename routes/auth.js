@@ -5,7 +5,7 @@ const User = require('../models/user');
 const authRouter = Router();
 
 authRouter.get('/login', (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', { errors: null });
 });
 
 authRouter.post('/login', (req, res) => {
@@ -14,7 +14,7 @@ authRouter.post('/login', (req, res) => {
         User.findOne({ email }).then(user => {
             bcrypt.compare(req.body.password, user.password).then(correct => {
                 if (correct) {
-                    res.redirect('/dashboard');
+                    res.redirect(202, '/dashboard');
                 } else {
                     res.render('auth/login', { errors: new Error('Bad password') });
                 }
@@ -39,7 +39,7 @@ authRouter.post('/signup', (req, res) => {
         bcrypt.hash(req.body.password, 10).then((hash) => {
             const user = new User({ email, password: hash });
             user.save().then(() => {
-                res.redirect('/login', 201);
+                res.redirect(201, '/login');
             }).catch(err => {
                 res.render('auth/signup', { errors: err });
             });
@@ -49,6 +49,10 @@ authRouter.post('/signup', (req, res) => {
     } else {
         res.render('auth/signup', { errors: new Error('No email or password provided') });
     }
+});
+
+authRouter.get('/logout', (req, res) => {
+    res.redirect(301, '/login');
 });
 
 module.exports = authRouter;

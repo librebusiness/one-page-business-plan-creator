@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const Plan = require('../models/plan');
+const plans = require('./plans.json');
 
 const plansRouter = Router();
 
@@ -7,21 +8,22 @@ plansRouter.get('/', (req, res) => {
     Plan.find().then(plans => {
         res.render('plans/index', { plans });
     }).catch(err => {
-        res.render('plans/index', { plans: [], errors: err });
+        res.render('plans/index', { plans, errors: err });
     });
 });
 
 plansRouter.get('/:id', (req, res, next) => {
-    Plan.findOne(req.params.id).then(plan => {
-        res.render('plans/plan', { plan });
+    Plan.findOne({ _id: req.params.id }).then(plan => {
+        res.render('plans/plan', { plan, errors: null });
     }).catch(err => {
-        next();
+        res.render('plans/plan', { plan: plans.find(p => p._id == req.params.id), errors: null });
+        // next();
     });
 });
 
 plansRouter.delete('/:id', (req, res, next) => {
     Plan.deleteOne({ _id: req.params.id }).then(() => {
-        res.redirect('/plans', 301);
+        res.redirect(301, '/plans');
     }).catch(err => {
         next();
     });
@@ -39,13 +41,16 @@ plansRouter.post('/create', (req, res) => {
     plan.save().then((plan) => {
         res.render('plans/plan', { plan, message: 'Plan created!' });
     }).catch(err => {
-        res.render('plans/', { errors: err });
+        res.render('plans/new', { errors: err });
     });
 });
 
-plansRouter.get('/edit/:id', (req, res) => {
+plansRouter.get('/edit/:id', (req, res, next) => {
     plan.findOne({ _id: req.params.id }).then(plan => {
         res.render('plans/edit', { plan });
+    }).catch(err => {
+        res.render('plans/edit', { plan: plans.find(p => p._id == req.params.id), errors: null });
+        // next();
     });
 });
 

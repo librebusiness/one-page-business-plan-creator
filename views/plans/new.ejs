@@ -9,11 +9,13 @@
 </head>
 
 <body>
-    <% include ../partials/navbar.ejs %>
+    <%- include('../partials/navbar.ejs', { user: true }) %>
     
-    <h1 class="title text-center">New Plan</h1>
+    <h1 class="title text-center mt-4">New Plan</h1>
 
-    <%- include('./plan-form.ejs', { method: 'post', action: 'create' }) %>
+    <div class="container">
+        <%- include('./plan-form.ejs', { method: 'post', action: 'create', plan: null }) %>
+    </div>
 
     <% if (errors) { %>
         <div class="notification is-danger error-notification" id="notification">
@@ -21,6 +23,7 @@
             <%= errors.message %>
         </div>
     <% } %>
+
     <script src="/javascripts/interactivity.js"></script>
 </body>
 

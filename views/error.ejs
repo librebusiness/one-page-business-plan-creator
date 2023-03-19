@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <% include partials/navbar.ejs %>
+    <%- include('partials/navbar.ejs', { user: null }) %>
     <h1 class="title"><%= message %></h1>
     <h2 class="subtitle"><%= error.status %></h2>
     <pre class=""><%= error.stack %></pre>

@@ -9,14 +9,123 @@
 </head>
 
 <body>
-    <% include ../partials/navbar.ejs %>
-        <% if (errors) { %>
-            <div class="notification is-danger error-notification" id="notification">
-                <button class="delete" onclick="hideNotification()"></button>
-                <%= errors.message %>
+    <%- include('../partials/navbar.ejs', { user: null }) %>
+
+    <div class="container">
+        <div class="columns mt-4">
+            <div class="column">
+                <h2 class="title">Plan Details</h2>
             </div>
-            <% } %>
-                <script src="/javascripts/interactivity.js"></script>
+            <div class="column text-end">
+                <a href="/plans/<%= plan._id %>" class="button is-danger is-outlined mr-2">Delete</a>
+                <a href="/plans/" class="button is-link mr-2">List All</a>
+                <a href="/plans/edit/<%= plan._id %>" class="button is-light">Edit</a>
+            </div>
+        </div>
+        
+        <p class="my-4">
+            <strong>Business Type</strong><br>
+            <%= plan.businessType %>
+        </p>
+        <p class="my-4">
+            <strong>Solution</strong><br>
+            <%= plan.solution %>
+        </p>
+        <p class="my-4">
+            <strong>Marketing Activities</strong><br>
+            <%= plan.marketingActivities %>
+        </p>
+        <p class="my-4">
+            <strong>Revenue</strong><br>
+            <%= plan.revenue %>
+        </p>
+        <p class="my-4">
+            <strong>Expenses</strong><br>
+            <%= plan.expenses %>
+        </p>
+        <p class="my-4">
+            <strong>The Team</strong><br>
+            <%= plan.team %>
+        </p>
+        <p class="my-4">
+            <strong>Partners</strong><br>
+            <%= plan.partners %>
+        </p>
+        <p class="my-4">
+            <strong>Name</strong><br>
+            <%= plan.name %>
+        </p>
+        <p class="my-4">
+            <strong>Domain</strong><br>
+            <%= plan.domain %>
+        </p>
+        <p class="my-4">
+            <strong>Industry</strong><br>
+            <%= plan.industry %>
+        </p>
+        <p class="my-4">
+            <strong>Vision</strong><br>
+            <%= plan.vision %>
+        </p>
+        <p class="my-4">
+            <strong>Mission</strong><br>
+            <%= plan.mission %>
+        </p>
+        <p class="my-4">
+            <strong>Service</strong><br>
+            <%= plan.service %>
+        </p>
+        <p class="my-4">
+            <strong>Target Market</strong><br>
+            <%= plan.targetMarket %>
+        </p>
+        <p class="my-4">
+            <strong>The Problem</strong><br>
+            <%= plan.problem %>
+        </p>
+        <p class="my-4">
+            <strong>The Competitors</strong><br>
+            <%= plan.competitors %>
+        </p>
+        <p class="my-4">
+            <strong>Our Advantage</strong><br>
+            <%= plan.advantage %>
+        </p>
+        <p class="my-4">
+            <strong>Marketing Channels</strong><br>
+            <%= plan.marketingChannels %>
+        </p>
+        <p class="my-4">
+            <strong>Marketing Materials</strong><br>
+            <%= plan.marketingMaterials %>
+        </p>
+        <p class="my-4">
+            <strong>Incentives</strong><br>
+            <%= plan.incentives %>
+        </p>
+        <p class="my-4">
+            <strong>Requirements</strong><br>
+            <%= plan.requirements %>
+        </p>
+        <p class="my-4">
+            <strong>Objectives</strong><br>
+            <%= plan.objectives %>
+        </p>
+        <p class="my-4">
+            <strong>Date</strong><br>
+            <%= plan.date %>
+        </p>
+    </div>
+
+    <% if (errors) { %>
+        <div class="notification is-danger error-notification" id="notification">
+            <button class="delete" onclick="hideNotification()"></button>
+            <%= errors.message %>
+        </div>
+    <% } %>
+
+    <script src="/javascripts/interactivity.js"></script>
+
 </body>
 
 </html>
