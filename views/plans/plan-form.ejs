@@ -1,0 +1,223 @@
+<div class="text-center columns">
+    <div class="column">
+        <button id="product-selector" onclick="showProductTab()" type="button" class="button is-primary">Product Based
+            Business</button>
+    </div>
+    <div class="column">
+        <button id="service-selector" onclick="showServiceTab()" type="button"
+            class="button is-primary is-outlined">Service Based Business</button>
+    </div>
+</div>
+
+<form id="product-tab" method="<%= method %>" action="/plans/<%= action %>" class="container">
+    <h3 class="subtitle">Business Info</h3>
+
+    <input type="hidden" name="businessType" value="product">
+    
+    <div class="columns mb-3">
+        <div class="column">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="input">
+        </div>
+    
+        <div class="column">
+            <label for="domain">Domain Name</label>
+            <input type="url" id="domain" name="domain" class="input" value="https://">
+        </div>
+        
+        <div class="column">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="industry" class="input">
+        </div>
+    </div>
+        
+    <h3 class="subtitle">Business Overview</h3>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="problem">The Problem We're Solving</label>
+            <textarea id="problem" name="problem" class="textarea"></textarea>
+        </div>
+        
+        <div class="column">
+            <label for="solution">Our Solution</label>
+            <textarea id="solution" name="solution" class="textarea"></textarea>
+        </div>
+    </div>
+    
+    <h3 class="subtitle">Market Analysis</h3>
+    
+    <div class="columns my-3">
+        <div class="column">
+            <label for="targetMarket">Target Market</label>
+            <textarea id="targetMarket" name="targetMarket" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="competitors">Our Competition</label>
+            <textarea id="competitors" name="competitors" class="textarea"></textarea>
+        </div>
+    </div>
+    
+    <h3 class="subtitle">Marketing And Sales</h3>
+    
+    <div class="columns my-3">
+        <div class="column">
+            <label for="marketingChannels">Marketing Channels</label>
+            <textarea id="marketingChannels" name="marketingChannels" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="marketingActivities">Marketing Activities</label>
+            <textarea id="marketingActivities" name="marketingActivities" class="textarea"></textarea>
+        </div>
+    </div>
+    
+    <h3 class="subtitle">Financial</h3>
+    
+    <div class="columns my-3">
+        <div class="column">
+            <label for="revenue">Revenue</label>
+            <textarea id="revenue" name="revenue" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="expenses">Expenses</label>
+            <textarea id="expenses" name="expenses" class="textarea"></textarea>
+        </div>
+    </div>
+    
+    <div class="my-3">
+        <label for="objectives">Key Objectives</label>
+        <textarea id="objectives" name="objectives" class="textarea"></textarea>
+    </div>
+    
+    <h3 class="subtitle">Resources</h3>
+    
+    <div class="columns my-3">
+        <div class="column">
+            <label for="team">Team</label>
+            <textarea id="team" name="team" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="partners">Partners</label>
+            <textarea id="partners" name="partners" class="textarea"></textarea>
+        </div>
+    </div>
+    
+    <div class="buttons">
+        <button type="submit" class="button is-primary">Save</button>
+    </div>
+</form>
+
+<form id="service-tab" method="<%= method %>" action="/plans/<%= action %>" class="container is-hidden">
+    <h3 class="subtitle">Business Info</h3>
+
+    <input type="hidden" name="businessType" value="service">
+
+    <div class="columns mb-3">
+        <div class="column">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="input">
+        </div>
+
+        <div class="column">
+            <label for="domain">Domain Name</label>
+            <input type="url" id="domain" name="domain" class="input" value="https://">
+        </div>
+
+        <div class="column">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="industry" class="input">
+        </div>
+    </div>
+
+    <h3 class="subtitle">Business Overview</h3>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="vision">Our Vision</label>
+            <textarea id="vision" name="vision" class="textarea"></textarea>
+        </div>
+
+        <div class="column">
+            <label for="mission">Our Mission</label>
+            <textarea id="mission" name="mission" class="textarea"></textarea>
+        </div>
+
+        <div class="column">
+            <label for="service">The Service We Provide</label>
+            <textarea id="service" name="service" class="textarea"></textarea>
+        </div>
+    </div>
+
+    <h3 class="subtitle">Market Analysis</h3>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="targetMarket">Target Market</label>
+            <textarea id="targetMarket" name="targetMarket" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="problem">The Problem We're Solving</label>
+            <textarea id="problem" name="problem" class="textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="competitors">Our Competitors</label>
+            <textarea id="competitors" name="competitors" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="advantage">Our Competitive Advantage</label>
+            <textarea id="advantage" name="advantage" class="textarea"></textarea>
+        </div>
+    </div>
+
+    <h3 class="subtitle">Marketing And Sales</h3>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="marketingChannels">Marketing Channels</label>
+            <textarea id="marketingChannels" name="marketingChannels" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="marketingMaterials">Marketing Materials</label>
+            <textarea id="marketingMaterials" name="marketingMaterials" class="textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="columns my-3">
+        <div class="column">
+            <label for="incentives">Customer Incentives</label>
+            <textarea id="incentives" name="incentives" class="textarea"></textarea>
+        </div>
+        <div class="column">
+            <label for="requirements">Staff Requirements</label>
+            <textarea id="requirements" name="requirements" class="textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="my-3">
+        <label for="objectives">Key Objectives</label>
+        <textarea id="objectives" name="objectives" class="textarea"></textarea>
+    </div>
+
+    <div class="buttons">
+        <button type="submit" class="button is-primary">Save</button>
+    </div>
+</form>
+
+<script>
+    function showProductTab() {
+        document.querySelector('#service-tab').classList.add('is-hidden');
+        document.querySelector('#product-tab').classList.remove('is-hidden');
+        document.querySelector('#service-selector').classList.add('is-outlined');
+        document.querySelector('#product-selector').classList.remove('is-outlined');
+    }
+    
+    function showServiceTab() {
+        document.querySelector('#product-tab').classList.add('is-hidden');
+        document.querySelector('#service-tab').classList.remove('is-hidden');
+        document.querySelector('#product-selector').classList.add('is-outlined');
+        document.querySelector('#service-selector').classList.remove('is-outlined');
+    }
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>One Page Business Plan Creator</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <% include ../partials/navbar.ejs %>
+        <% if (errors) { %>
+            <div class="notification is-danger error-notification" id="notification">
+                <button class="delete" onclick="hideNotification()"></button>
+                <%= errors.message %>
+            </div>
+            <% } %>
+                <script src="/javascripts/interactivity.js"></script>
+</body>
+
+</html>

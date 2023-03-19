@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>One Page Business Plan Creator</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <% include ../partials/navbar.ejs %>
+        <div class="container mt-4">
+            <div class="columns">
+                <div class="column">
+                    <form action="/signup" method="post" class="container">
+                        <h2 class="title">Sign Up</h2>
+                        
+                        <div class="my-3">
+                            <label for="email">Email</label>
+                            <input autofocus type="email" id="email" name="email" class="input">
+                        </div>
+                        <div class="my-3">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="input">
+                        </div>
+                        <div class="buttons mt-4">
+                            <a class="button is-light" href="/login">Log In</a>
+                            <button class="button is-primary" type="submit">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="column">
+                </div>
+            </div>
+        </div>
+        <% if (errors) { %>
+            <div id="notification" class="notification is-danger error-notification">
+                <button class="delete" onclick="hideNotification();"></button>
+                <%= errors.message %>
+            </div>
+        <% } %>
+        <script src="/javascripts/interactivity.js"></script>
+    </body>
+</html>
