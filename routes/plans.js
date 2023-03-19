@@ -16,8 +16,8 @@ plansRouter.get('/:id', (req, res, next) => {
     Plan.findOne({ _id: req.params.id }).then(plan => {
         res.render('plans/plan', { plan, errors: null });
     }).catch(err => {
-        res.render('plans/plan', { plan: plans.find(p => p._id == req.params.id), errors: null });
-        // next();
+        // res.render('plans/plan', { plan: plans.find(p => p._id == req.params.id), errors: null });
+        next();
     });
 });
 
@@ -49,8 +49,8 @@ plansRouter.get('/edit/:id', (req, res, next) => {
     plan.findOne({ _id: req.params.id }).then(plan => {
         res.render('plans/edit', { plan });
     }).catch(err => {
-        res.render('plans/edit', { plan: plans.find(p => p._id == req.params.id), errors: null });
-        // next();
+        // res.render('plans/edit', { plan: plans.find(p => p._id == req.params.id), errors: null });
+        next();
     });
 });
 
